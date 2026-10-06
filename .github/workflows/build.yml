@@ -11,8 +11,8 @@ jobs:
         uses: dabao1955/kernel_build_action@main
         with:
           kernel-url: https://github.com/LineageOS/android_kernel_realme_sm6375.git
-          kernel-branch: lineage-21.0
-          config: vendor/parrot_defconfig
+          kernel-branch: lineage-23.2
+          config: vendor/holi-qgki_defconfig
           arch: arm64
           ksu-other: true
           ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
