@@ -1,0 +1,19 @@
+name: Build Realme SM6375 Kernel with KernelSU Next
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build-kernel:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build Kernel
+        uses: dabao1955/kernel_build_action@main
+        with:
+          kernel-url: https://github.com/LineageOS/android_kernel_realme_sm6375.git
+          kernel-branch: lineage-21.0
+          config: vendor/parrot_defconfig
+          arch: arm64
+          ksu-other: true
+          ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
+          ksu-version: next
