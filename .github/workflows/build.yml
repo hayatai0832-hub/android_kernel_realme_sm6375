@@ -9,17 +9,17 @@ permissions:
 jobs:
   build-kernel:
     name: Build Kernel
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - name: Checkout kernel source
         uses: actions/checkout@v4
         with:
-          ref: lineage-23.2
+          path: kernel/source
 
       - name: Build
         uses: dabao1955/kernel_build_action@main
         with:
-          kernel-url: ./
+          kernel-url: ./kernel/source/
           config: vendor/holi-qgki_defconfig
           arch: arm64
           aosp-clang: true
@@ -27,8 +27,7 @@ jobs:
           aosp-gcc: true
           android-version: 16
           ksu-other: true
-          ksu-url: https://github.com/KernelSU-Next/KernelSU-Next.git
-          ksu-version: main
+          ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
           anykernel3: true
           release: true
           access-token: ${{ secrets.GITHUB_TOKEN }}
