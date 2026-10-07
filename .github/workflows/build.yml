@@ -11,12 +11,15 @@ jobs:
     name: Build Kernel
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout kernel source
+        uses: actions/checkout@v4
+        with:
+          ref: lineage-23.2
+
       - name: Build
         uses: dabao1955/kernel_build_action@main
         with:
-          kernel-url: https://github.com/LineageOS/android_kernel_realme_sm6375.git
-          kernel-branch: lineage-23.2
-          depth: 1
+          kernel-url: ./
           config: vendor/holi-qgki_defconfig
           arch: arm64
           aosp-clang: true
@@ -27,3 +30,5 @@ jobs:
           ksu-url: https://github.com/KernelSU-Next/KernelSU-Next.git
           ksu-version: main
           anykernel3: true
+          release: true
+          access-token: ${{ secrets.GITHUB_TOKEN }}
