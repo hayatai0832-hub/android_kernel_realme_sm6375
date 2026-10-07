@@ -25,7 +25,7 @@ jobs:
           config: vendor/holi-qgki_defconfig
           arch: arm64
 
-          android-version: 16
+          android-version: 12
 
           aosp-clang: true
           aosp-clang-version: r530567
