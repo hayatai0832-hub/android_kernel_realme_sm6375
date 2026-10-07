@@ -10,6 +10,7 @@ jobs:
   build-kernel:
     name: Build Kernel
     runs-on: ubuntu-22.04
+
     steps:
       - name: Checkout kernel source
         uses: actions/checkout@v4
@@ -22,12 +23,15 @@ jobs:
           kernel-url: ./kernel/source/
           config: vendor/holi-qgki_defconfig
           arch: arm64
+
           aosp-clang: true
           aosp-clang-version: r530567
-          aosp-gcc: true
+
           android-version: 16
+
           ksu-other: true
           ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
+
           anykernel3: true
           release: true
           access-token: ${{ secrets.GITHUB_TOKEN }}
