@@ -28,7 +28,6 @@ jobs:
           android-version: 12
 
           aosp-clang: true
-          aosp-clang-version: r530567
           aosp-gcc: true
 
           ksu-other: true
