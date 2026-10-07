@@ -30,6 +30,7 @@ jobs:
           aosp-clang: true
           aosp-gcc: true
 
+          ksu: true
           ksu-other: true
           ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
 
