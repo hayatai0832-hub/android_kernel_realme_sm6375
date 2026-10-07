@@ -33,6 +33,7 @@ jobs:
           ksu: true
           ksu-other: true
           ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
+          ksu-version: v0.9.5
 
           anykernel3: true
           release: true
