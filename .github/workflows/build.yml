@@ -3,23 +3,24 @@ name: Build Realme SM6375 Kernel with KernelSU Next
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   build-kernel:
+    name: Build Kernel
     runs-on: ubuntu-latest
     steps:
-      - name: Build Kernel
+      - name: Build
         uses: dabao1955/kernel_build_action@main
         with:
           kernel-url: https://github.com/LineageOS/android_kernel_realme_sm6375.git
           kernel-branch: lineage-23.2
           config: vendor/holi-qgki_defconfig
           arch: arm64
-          clang-version: r530567  # 鎖定 Android 16 / LineageOS 23.2 原生 Clang 工具鏈
+          aosp-clang: true
+          aosp-clang-version: r530567
           ksu-other: true
           ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
           ksu-version: next
-          extra-cmd: |
-            echo "CONFIG_KPROBES=y" >> arch/arm64/configs/vendor/holi-qgki_defconfig
-            echo "CONFIG_KPROBE_EVENTS=y" >> arch/arm64/configs/vendor/holi-qgki_defconfig
-            echo "CONFIG_HAVE_KPROBES=y" >> arch/arm64/configs/vendor/holi-qgki_defconfig
-            echo "CONFIG_KSU=y" >> arch/arm64/configs/vendor/holi-qgki_defconfig
+          anykernel3: true
