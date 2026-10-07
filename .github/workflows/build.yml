@@ -16,6 +16,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           path: kernel/source
+          ref: lineage-23.2
 
       - name: Build
         uses: dabao1955/kernel_build_action@main
@@ -24,10 +25,9 @@ jobs:
           config: vendor/holi-qgki_defconfig
           arch: arm64
 
+          android-version: 16
           aosp-clang: true
           aosp-clang-version: r530567
-
-          android-version: 16
 
           ksu-other: true
           ksu-url: https://github.com/KernelSU-Next/KernelSU-Next
